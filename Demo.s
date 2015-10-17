@@ -1,6 +1,6 @@
 .data 
-msg:    .asciiz "Meow?"
-num:    .word
+msg:    .asciiz "Meow?\n"
+num:    .word 0
 .text
 main:
     la $a0, msg
@@ -11,7 +11,7 @@ main:
     sw $v0, num
     lw $a0, num
     jal mult
-    li $v0, 0
+    li $v0, 1
     lw $a0, num
     syscall
     li $v0, 10
