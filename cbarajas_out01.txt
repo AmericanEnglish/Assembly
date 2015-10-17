@@ -1,0 +1,4 @@
+carlos@Serenity:~/Documents/Assembly$ Mars.sh cbarajas_hw01.s >> cbarajas_out01.txt
+MARS 4.5  Copyright 2003-2014 Pete Sanderson and Kenneth Vollmar
+
+Hello Olivetian World!
