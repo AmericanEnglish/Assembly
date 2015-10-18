@@ -13,12 +13,17 @@ echo 'Unarchiving Jar . . .'
 java -cp -xf '${HOME}/.Mars/Mars${VERSION}.jar'
 
 # GIT THIS SON
+echo 'Pulling Script For mars'
 git clone https://github.com/americanenglish/Assembly 'ScrapAssembly'
+echo 'Moving Script'
 mv 'Mars.sh' '${HOME}/.Mars/mars.sh'
+echo 'Cleanup'
 rm -r 'ScrapAssembly'
 
 echo 'Setting Path Variables & Making it shell executable'
+export 'PATH=$PATH:"$HOME/.Mars/"' >> '${HOME}/.bashrc'
 # Stuff
 
 echo 'Restarting Shell, To Test Start IDE Using:'
 echo 'mars.sh'
+exec $SHELL
