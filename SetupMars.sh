@@ -24,7 +24,7 @@ echo 'Cleanup . . .'
 rm -rf 'ScrapAssembly'
 
 echo 'Setting Path Variables & Making it shell executable . . .'
-export 'PATH=$PATH:"$HOME/.Mars/"' >> "${HOME}/.bashrc"
+echo 'export PATH=$PATH:"$HOME/.Mars/"' >> "${HOME}/.bashrc"
 
 
 echo 'Restarting Shell, To Test Start IDE Using:'
