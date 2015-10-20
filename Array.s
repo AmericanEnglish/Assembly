@@ -19,8 +19,10 @@ main:
 
 init:
     beq $t0, $s0, return2 # if t == s, return
-    li $t1, 0 # Set Init Value to 0
-    sw $t1, ($s1) # Put Value in MemAddr $s1
+    li $v0, 42 # RNGESUS
+    li $a1, 9
+    syscall
+    sw $a0, ($s1) # Put Value in MemAddr $s1
     addi $s1, $s1, 4 # Increment Memory
     addi $t0, $t0, 1 # Increment Counter
     j init # Restart Loop
