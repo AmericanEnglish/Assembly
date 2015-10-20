@@ -3,6 +3,7 @@ list:   .space  400 # Reserve 400 bytes == 100 words == 10x10 matrix
 size:   .word   100 # 100 item array, used as an endpoint in conjunction with the counter
 row: .asciiz "Row: "
 col: .asciiz "Col: "
+val: .asciiz "Val: "
 
 nline: .asciiz "\n"
 
@@ -29,11 +30,15 @@ return2:
 
 prompt:
     la $a0, row # Collect row value
+    li $v0, 4
+    syscall
     li $v0, 5
     syscall
     beq $v0, $zero, return2 # If row == 0 terminate
     add $t0, $v0, $zero # Move row val
     la $a0, col # Collect col value
+    li $v0, 4
+    syscall
     li $v0, 5
     syscall
     beq $v0, $zero, return2 # If col == 0 terminate
@@ -47,7 +52,16 @@ prompt:
     mflo $t1
     add $t0, $t0, $t1 # Memory place final
     add $s1, $s1, $t0
+    la $a0, val # Print Val
+    li $v0, 4
+    syscall
     lw $a0, ($s1) # Load value
     li $v0, 1
+    syscall
+    la $a0, nline # Print newline
+    li $v0, 4
+    syscall
+    la $a0, nline # Print newline
+    li $v0, 4
     syscall
     j prompt
