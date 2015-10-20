@@ -15,4 +15,5 @@ Everything, except the shell scripts, in this folder is written using the 32-bit
  - This is a wrapper for the MIPS simulator MARS which allows to be ran at the terminal
 - SetupMars.sh
  - Must have Git and Java installed first. Setups up the MARS MIPS simulator to run at the terminal
+
 ## More Explanation To Come!
