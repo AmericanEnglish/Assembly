@@ -6,4 +6,4 @@ size:   .word   100 # 100 item array
 main:
     lw $s0, size # load in array length
     la $s1, list # load in list start
-    li $t0, 0 # Initialize it
+    li $t0, 0 # Element counter
