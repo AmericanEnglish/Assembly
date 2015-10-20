@@ -3,6 +3,8 @@ Organization &amp; Assembly Programs
 Everything, except the shell scripts, in this folder is written using the 32-bit MIPS assembly language. Enjoy!
 
 ## Program Overview
+- Demo.s
+ - Some demonstration assembly from class
 - cbarajas_hw01
  - Hello World program
 - Array.s
