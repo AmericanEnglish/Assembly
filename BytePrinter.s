@@ -3,6 +3,7 @@ buffer: .space 1000
 max: .word 1000
 prompt: .asciiz "String: "
 nline: .asciiz "\n"
+term: .byte 'a'
 .text
 
 main:
@@ -16,17 +17,17 @@ main:
     syscall
 
     la $s1, buffer
+    lb $s2, term
     jal loop
-    li $v0, 8 # Exit
+    li $v0, 10 # Exit
     syscall
 
 loop:
-    li $t1, 00
     lbu $a0, ($s1)
-    beq $t1, $a1, return
+    beq $a0, $zero, return
     li $v0, 11
     syscall
-    addi $s1, $s1, 4
+    addi $s1, $s1, 1
     b loop
 
 
