@@ -1,5 +1,5 @@
 .data 
-msg:    .asciiz "Meow?\n"
+msg:    .asciiz "Number :"
 num:    .word 0
 .text
 main:
