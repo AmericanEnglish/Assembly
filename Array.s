@@ -66,7 +66,7 @@ prompt:
     la $a0, val # Print Val Message
     li $v0, 4
     syscall
-    lw $a0, ($s1) # Load value
+    lw $a0, ($s1) # Print Value
     li $v0, 1
     syscall
     la $a0, nline # Print newline
