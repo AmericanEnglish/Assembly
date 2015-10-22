@@ -38,6 +38,7 @@ prompt:
     syscall
     beq $v0, $zero, return2 # If row == 0 terminate
     add $t0, $v0, $zero # Move row val
+    
     la $a0, col # Collect col value
     li $v0, 4
     syscall
@@ -45,16 +46,24 @@ prompt:
     syscall
     beq $v0, $zero, return2 # If col == 0 terminate
     add $t1, $v0, $zero # Move col val
-    la $s1, list # Prep array for increment
-    li $t3, 40
-    mult $t0, $t3 # Adjusting row val to match memory place
+    
+    li $t3, 1     # Subtract 1 to account for 0 termination
+    sub $t1, $t1, $t3
+    sub $t0, $t0, $t3
+
+    li $t3, 40 # Adjusting row val to match memory place
+    mult $t0, $t3 
     mflo $t0
-    li $t3, 4
-    mult $t1, $t3 # Adjust col val to match memory place
+    
+    li $t3, 4 # Adjust col val to match memory place
+    mult $t1, $t3
     mflo $t1
-    add $t0, $t0, $t1 # Memory place final
+    
+    add $t0, $t0, $t1 # Memory Adjustment
+    la $s1, list # Prep array for increment
     add $s1, $s1, $t0
-    la $a0, val # Print Val
+    
+    la $a0, val # Print Val Message
     li $v0, 4
     syscall
     lw $a0, ($s1) # Load value
