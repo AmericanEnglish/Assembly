@@ -31,3 +31,5 @@ hide:
     add $s2, $s1, $t0 # Adjust memory pointer
     add $s2, $s2, $t8
     sw $s1, ($s2) # Store the user int here
+
+find:
