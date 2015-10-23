@@ -1,7 +1,7 @@
 # Hide and Find
 .data
 list:   .space 400
-size: .word 100
+size: .word 99
 prompt: .asciiz "Number To Hide: "
 comma:    .asciiz ", "
 loc:    .asciiz "Location: "
@@ -16,7 +16,7 @@ main:
     syscall
     add $s1, $v0, $zero # Move user int to saved register
     jal hide
-    lw $t9, size # Prep for find
+    lw $a3, size # Prep for find
     li $a0, 0
     jal find
     li $v0, 10
@@ -46,22 +46,28 @@ find:
     beq $t0, $s1, pass 
     addi $a0, $a0, 1
     addi $s0, $s0, 4
-    bgt $a0, $t9, fail
+    bgt $a0, $a3, fail
     b find
 
 
 pass:
-    li $t0, 40 # Detect row, column
-    div $a0, $t0
+    ###### Debug ######
+    add $t9, $a0, $zero
+    ###### Debug ######
+    li $t2, 40 # Detect row, column
+    divu $a0, $t2
     mflo $t0 # Move row
     mfhi $t1 # Move column (still in 4 bytes)
-    li $t0, 4
-    div $t1, $t0
+    li $t2, 4
+    divu $t1, $t2
     mfhi $t1 # Now in array-like column format
     la $a0, loc # Print location
     li $v0, 4
     syscall
-    add $a0, $t0, $zero
+    # add $a0, $t0, $zero
+    ###### Debug ######
+    add $a0, $t9, $zero
+    ###### Debug ######
     li $v0, 1
     syscall
     la $a0, comma
