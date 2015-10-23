@@ -51,7 +51,23 @@ find:
 
 
 pass:
-    # Print row, col
+    li $t0, 40 # Detect row, column
+    div $a0, $t0
+    mflo $t0 # Move row
+    mfhi $t1 # Move column
+    la $a0, loc # Print location
+    li $v0, 4
+    syscall
+    add $a0, $t0, $zero
+    li $v0, 1
+    syscall
+    la $a0, comma
+    li $v0, 4
+    syscall
+    add $a0, $t1, $zero
+    li $v0, 1
+    syscall
+    b return
 
 fail:
     la $a0, loc
