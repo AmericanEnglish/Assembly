@@ -24,7 +24,7 @@ main:
 
 
 hide:
-    li $a1, 9 # Gather random column
+    li $a1, 10 # Gather random column
     li $v0, 42
     syscall 
     add $t0, $a0, $zero
@@ -46,7 +46,7 @@ find:
     beq $t0, $s1, pass 
     addi $a0, $a0, 1
     addi $s0, $s0, 4
-    bgt $s0, $t9, fail
+    bgt $a0, $t9, fail
     b find
 
 
@@ -54,7 +54,10 @@ pass:
     li $t0, 40 # Detect row, column
     div $a0, $t0
     mflo $t0 # Move row
-    mfhi $t1 # Move column
+    mfhi $t1 # Move column (still in 4 bytes)
+    li $t0, 4
+    div $t1, $t0
+    mfhi $t1 # Now in array-like column format
     la $a0, loc # Print location
     li $v0, 4
     syscall
