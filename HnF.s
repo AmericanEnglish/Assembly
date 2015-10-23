@@ -52,7 +52,7 @@ find:
 
 pass:
     ###### Debug ######
-    add $t9, $a0, $zero
+    # add $t9, $a0, $zero
     ###### Debug ######
     li $t2, 40 # Detect row, column
     divu $a0, $t2
