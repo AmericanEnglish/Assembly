@@ -51,23 +51,14 @@ find:
 
 
 pass:
-    ###### Debug ######
-    # add $t9, $a0, $zero
-    ###### Debug ######
-    li $t2, 40 # Detect row, column
-    divu $a0, $t2
+    li $t2, 10 # Detect row, column
+    div $a0, $t2
     mflo $t0 # Move row
-    mfhi $t1 # Move column (still in 4 bytes)
-    li $t2, 4
-    divu $t1, $t2
-    mfhi $t1 # Now in array-like column format
+    mfhi $t1 # Move column
     la $a0, loc # Print location
     li $v0, 4
     syscall
-    # add $a0, $t0, $zero
-    ###### Debug ######
-    add $a0, $t9, $zero
-    ###### Debug ######
+    add $a0, $t0, $zero
     li $v0, 1
     syscall
     la $a0, comma
