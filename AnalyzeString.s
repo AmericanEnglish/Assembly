@@ -1,7 +1,7 @@
 .data 
 buffer:     .space 20 # Max Size
 size:       .word 5 # Max Characters
-compare:    .asciiz "Yas"
+compare:    .asciiz "Yas\n"
 message:    .asciiz "Do you liek mudkipz? "
 fail:       .asciiz "Wat?!"
 pass:       .asciiz "Gud!!"
