@@ -49,7 +49,7 @@ find: # Leaf demonstration
     lw $ra, ($sp) # Load return counter back
     addiu $sp, $sp, 4 # Restore stack
     addi $a3, $a3, 1 # This is out of range of the array
-    blt $a0, $a3, success # If not out of range, success
+    blt $a0, $a3, pass # If not out of range, success
     j fail
 
 
