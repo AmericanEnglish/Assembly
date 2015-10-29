@@ -23,5 +23,7 @@ Everything, except the shell scripts, in this folder is written using the 32-bit
  - "Hide aNd Find". This program takes a number from the user and drops it randomly inside a 10x10 matrix. Then, from there, the program searches the matrix for the number in question and will return the row, column value that the number exists in.
 - PrintRNGInt.s
  - Takes some upper boundary B and prints N randomly generated integers that exist between 0 and the bounary B. Both B and N are input by the user at runtime.
- 
+- HnL.s
+ - "Hide aNd Leaf". This is the same exact program as Hide and Find except this uses the concept of "leafing", more than one subroutine call. Main jal's to find which jals to search. Using the index returned from search find determines the next branching maneuver.
+
 ## More Explanation To Come!
